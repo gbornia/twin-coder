@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>TwinCoder.org</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body style="font-family:Helvetica,Arial,sans-serif;color:#777777;background-color:#eeeeee;">
+
+<div style="padding:10px;text-align:left;">
+    <table border="0"  width="100%">
+        <tr>
+            <td width="80">
+                <img src="twin-coder-128.png" width="72">
+            </td>
+            <td>
+                <h1>TwinCoder.org</h1>
+                <h4>Easy platform for kids to learn how to code!</h4>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <a href="index.html" class="btn btn-default" role="button">Home</a>
+                <a href="gallery.html" class="btn btn-default" role="button">Gallery</a>
+                <a href="lessons.html" class="btn btn-default" role="button">Lessons</a>
+                <a href="about.html" class="btn btn-default" role="button">About</a>
+                <hr/>
+            </td>            
+        </tr>                
+    </table>
+</div>
+
+<div class="container-fluid">
+    
+    <div class="panel panel-info">
+      <div class="panel-heading">Lesson 02 - Understanding variables and basic math operations</div>
+
+      <div class="panel-body">
+          Hi, in this lesson we'll understand what <b>variables</b> are and how they are important for coding. For this lesson we'll
+          create some variables and use it with some other commands and also apply some math functions.<br/>
+          <br/>
+          We'll also learn how to use the four basic math operations:<br/>
+          <ul>
+              <li><b>Addition</b></li>
+              <li><b>Subtraction</b></li>
+              <li><b>Multiplication</b></li>
+              <li><b>Division</b></li>              
+          </ul>
+    </div> 
+    </div>
+      
+    <div class="panel panel-success">
+        <div class="panel-heading">Using variables in a program</div>
+
+      <div class="panel-body">
+          We've learnt that all programs begin with <b>begin</b> and end with an <b>end</b> and that inside that block we can create our program by entering instructions or commands. In order 
+          to use variables, we need to tell the code that we will use them by entering the word <b>variables</b> and naming the variables that we are going to use.<br/>
+          <br/>
+          One important note is that variable names should not have spaces or special characters. When we have to use more than one word for a variable, we can use the underline symbol or
+          separate it by using lower and upper case. For example, if we have two variables that we want to call "first operand" and "second operand", in coding we should use something lile
+          <code>firstOperand</code> and <code>secondOperand</code>, or <code>first_operand</code> and <code>second_operand</code>.<br/>
+          <br/>
+          Below is an example on how we use variables, and how we print it to the screen using the <code>println</code> command:
+              
+<pre><code>variables
+  firstName, lastName
+begin
+  firstName = "Abraham"
+  lastName = "Lincoln"
+  println("The name is ", firstName, " ", lastName)
+end</code></pre>
+          The program above will display the text "The name is Abraham Lincoln". <br/>
+          <br/>
+          Another important concept is that variables can receive values from other variables, as well as receive values from math operations or other functions. Check it out:
+<pre><code>variables
+  yearOfBirth, currentYear, age
+begin
+  yearOfBirth = 2004
+  currentYear = 2018
+  age = currentYear - yearOfBirth
+  println("The age of someone who was born in ", yearOfBirth, " is ", age, " years old")
+end</code></pre>
+          What has happened? Please notice that we said that the <code>age</code> was equal to <code>currentYear - yearOfBirth</code>. In this example
+          it means that age will be 2018 - 2004, which is 14. The program will write to the screen the following: "The age of someone who was born in 2004 is 14 years old".<br/>
+      </div>       
+    </div> 
+      
+    <div class="panel panel-warning">
+        <div class="panel-heading">Basic math operations</div>
+
+        <div class="panel-body">
+            The four math operations are:<br/>
+          <ul>
+              <li><b>Addition</b>: we'll use the <code>+</code> symbol</li>
+              <li><b>Subtraction</b>: we'll use the <code>-</code> symbol</li>
+              <li><b>Multiplication</b>: we'll use the <code>*</code> symbol</li>
+              <li><b>Division</b>: we'll use the <code>/</code> symbol</li>              
+          </ul>            
+            So not let's try create a code where we can use some of the math operations. Let's use some examples from your math class: geometry!<br>          
+<pre><code>variables
+  perimeter, side, area
+begin
+  perimeter = 20
+  side = perimeter / 4
+  area = side * 4
+  
+  println("The side of a square with a perimeter of ", perimeter, " is ", side)
+  println("The area of the square is ", area)
+end</code></pre>
+          Can you think about what the computer will print to the screen? Think about it and then try it yourself.<br/>
+          <br/>
+            <div class="panel panel-default">
+                <div class="panel-heading">Advanced</div>
+
+                <div class="panel-body">
+                    it is important to understand a concept call <b><i>precendence of operators</i></b>. This means that some operators are more important than
+                    others when the computer tries to do math. <i>Multiplication</i> and <i>Divistion</i> are <u>more important</u> than the <i>Addition</i> and <i>Subtraction</i>, so
+              the computer will calculate those first. For example in the expression <code>value = 10 - 3 * 2</code>, the result will be 4. Why!? Because the computer will
+              calculate <code>3 * 2</code> first, which is 6, and then calculate the subtraction, so it will do <code>10 - 6</code> and the variable <code>value</code> will receive
+              the value 6. In order to inform the computer a different order of precedence, we should use parenthesis. In the previous example, let's do the math like this: 
+              <code>value = (10 - 3) * 2</code>, in this case the result will be 14 (instead of 4). This is because <code>10 - 3</code> will be calculated before, which is 7, and
+              then the computer will proceed with the multiplication <code>7 * 2</code>.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-danger">
+        <div class="panel-heading">Exercises</div>
+
+      <div class="panel-body">
+          <ol>
+              <li>Create a program that displays your name and your age using 3 variables for your first name, last name and age.</li>
+              <li>Create a program that has 3 variables called <code>area, sideA and sideB</code> to represent the area and sides of a rectangle, then
+              set the values of the sideA and sideB and calculate the area. Use math to calculate the area.</li>
+              <li>Create a program with the variables <code>candies, children, candiesPerChild</code>. Set the variable candies to 27 and the variable children to 3.
+              Now make sure the program calculates into the variable candiesPerChild the number of candies that each child will receive if we equally distribute
+              the candies.</li>
+          </ol>
+      </div>
+    </div>    
+      
+</div>
+
+<div class="container-fluid"><hr/>© copyright TwinCoder.org</div>
+
+</body>
+</html>

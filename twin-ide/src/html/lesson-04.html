@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>TwinCoder.org</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body style="font-family:Helvetica,Arial,sans-serif;color:#777777;background-color:#eeeeee;">
+
+<div style="padding:10px;text-align:left;">
+    <table border="0"  width="100%">
+        <tr>
+            <td width="80">
+                <img src="twin-coder-128.png" width="72">
+            </td>
+            <td>
+                <h1>TwinCoder.org</h1>
+                <h4>Easy platform for kids to learn how to code!</h4>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <a href="index.html" class="btn btn-default" role="button">Home</a>
+                <a href="gallery.html" class="btn btn-default" role="button">Gallery</a>
+                <a href="lessons.html" class="btn btn-default" role="button">Lessons</a>
+                <a href="about.html" class="btn btn-default" role="button">About</a>
+                <hr/>
+            </td>            
+        </tr>                
+    </table>
+</div>
+
+<div class="container-fluid">
+    
+    <div class="panel panel-info">
+      <div class="panel-heading">Lesson 04 - Conditionals: use of <code>if</code> and comparisons</div>
+
+      <div class="panel-body">
+          In this lesson we will learn two important aspects of conditionals:<br/>
+          <ul>
+              <li>command <b>if</b>: it allows the computer to behave differently depending on a condition</li>
+              <li><b>comparisons</b>: the different types of comparisons that we can use</li>
+          </ul>
+       </div>       
+    </div>
+    
+    <div class="panel panel-success">
+      <div class="panel-heading">Command <code>if</code></div>
+
+      <div class="panel-body">
+          Now things are getting interesting! The conditional <code>if</code> is certainly one of the most important things in coding. It adds flavor to your code! In order
+          to use it we will also need to understand the comparisons, which is next in this lesson.<br/>
+          <br/>
+          The <code>if</code> commands needs a condition (for example, if the age is equals to 10) and then a set of instructions. Take a look at the code below:<br/>
+ <pre><code>variables
+  age
+begin
+  print("What's your age (in years)? ")
+  read(age)
+
+  println("You age is ", age)
+
+  if (age == 10)
+    println("Nice! I also have the same age")
+  end
+end</code></pre>   
+          In TwinCoder the comparison equals is written as <code>==</code> (and so it is with many other coding languages such as Java, C, Python. etc). It requires the two equals instead of one, 
+          to differentiate from the attribution (<code>age=10</code> sets 10 to age, but <code>age==10</code> compares the age to see if it is 10).<br/>
+          <br/>
+          Another important concept is the <code>else</code> block. That block indicates what to do if the condition is not met. Take a look at the following example:<br/>
+ <pre><code>variables
+  birthYear
+begin
+  print("What year were you born? ")
+  read(birthYear)
+
+  if (year == 2008)
+    println("Wow! You were born in the same year as me!")
+    println("That means that we are both 10 years old.")
+  else
+    println("Nice, you are ", 2018 - year, " years old")
+  end
+end</code></pre>    
+          Try the code above and try to enter different birth years to check the results. Can you explain what is happening?
+       </div>       
+    </div> 
+    
+   <div class="panel panel-warning">
+      <div class="panel-heading">Comparisons</div>
+
+      <div class="panel-body">
+          There are multiple comparisons that you can use with the command <code>if</code>. Plese take a look at the table below:<br/>
+          
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Operator</th>
+                  <th>Description</th>
+                  <th>Example</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                    <td><code>==</code></td>
+                  <td>Compares if one side is equals to the other</td>
+                  <td><code>age==10</code>, an age of 8, 9, 11 will be false, but 10 will be true</td>
+                </tr>
+               <tr>
+                  <td><code>!=</code></td>
+                  <td>Compares if one side is different than the other</td>
+                  <td><code>age!=10</code>, an age of 8, 9, 11 will be true, but 10 will be false</td>
+                </tr>                
+                <tr>
+                  <td><code>&gt;</code></td>
+                  <td>Compares if one side is great than the other</td>
+                  <td><code>age&gt;10</code>, an age of 8, 9, 10 will be false, but 11, 12 will be true</td>
+                </tr>
+                <tr>
+                  <td><code>&gt;=</code></td>
+                  <td>Compares if one side is great or equals than the other</td>
+                  <td><code>age&gt;=10</code>, an age of 8, 9 will be false, but 10, 11, 12 will be true</td>
+                </tr>                
+                <tr>
+                  <td><code>&lt;</code></td>
+                  <td>Compares if one side is less than the other</td>
+                  <td><code>age&lt;10</code>, an age of 8, 9 will be true, but 10, 11, 12 will be false</td>
+                </tr>
+                <tr>
+                  <td><code>&lt;=</code></td>
+                  <td>Compares if one side is less or equals than the other</td>
+                  <td><code>age&lt;=10</code>, an age of 8, 9, 10 will be true, but 11, 12 will be false</td>
+                </tr>                
+              </tbody>
+            </table>
+          
+              
+          Now that we now the different types of comparison let's try the following:<br/>
+ <pre><code>variables
+  siblings
+begin
+  print("How many siblings do you have? ")
+  read(siblings)
+
+  if (siblings == 3)
+     println("I have 3 siblings too!")
+  end
+
+  if (siblings < 3)
+     println("I have more siblings than you.")
+  end
+
+  if (siblings > 3)
+     println("You have more siblings than me. Oh boy!")
+  end
+end</code></pre>            
+          Try it yourself! Run the program above more than once and try it with a different number of siblings.      
+    </div>       
+    </div>       
+    
+  <div class="panel panel-danger">
+      <div class="panel-heading">Exercises</div>
+
+      <div class="panel-body">
+          Now it is time to practice what we've learned. Below are some nice exercises!<br/>
+          <ol>
+              <li>Create a program that asks to guess your age, if it matches display a congratulation message, otherwise display that unfortunately the answer is wrong.</li>
+              <li>Combine what you've learned so far with <code>if</code> and <code>else</code>. Use <code>println</code> and <code>speak</code>.</li>
+              <li>Create a test for a student! Ask a question, for example ask what's the area of a square of a side of 9, and tell the student if he is right or wrong.</li>
+          </ol>
+          Have fun!
+        </div>       
+    </div> 
+    
+</div>
+
+<div class="container-fluid"><hr/>© copyright TwinCoder.org</div>
+
+</body>
+</html>

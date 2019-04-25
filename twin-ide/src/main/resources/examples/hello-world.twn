@@ -1,0 +1,7 @@
+/*
+ * Example {hello-world.twn}
+ */
+begin
+  // Print "Hello World!" to the screen
+  println("Hello World!")
+end

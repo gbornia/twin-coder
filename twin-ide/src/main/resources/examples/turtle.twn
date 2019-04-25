@@ -1,0 +1,96 @@
+/*
+ * Example {turtle.twn}
+ */
+variables
+	x0, y0, key, direction, moving
+begin
+
+	x0 = 30
+	y0 = 80
+	key = ""
+	direction = "right"
+	moving = 0
+
+	while (key!="esc")
+		clear
+
+		// Show instructions
+		println("Use left, right, up and down to move the turtle. Use 'm' to start movement and accelerate. Use 's' to stop.")
+
+		// Draw turtle (depending on the direction)
+		// This part will be replaced later by a procedure
+		if (direction == "right")
+			x0 = x0 + moving
+			oval(x0, y0, 40, 30, "#00aa00", "#00cc00")
+			// Hear
+			circle(x0 + 40, y0 + 15, 10, "#00aa00", "#00cc00")
+			// Feet
+			circle(x0 + 10, y0, 3, "#acacac", "#acacac")
+			circle(x0 + 30, y0, 3, "#acacac", "#acacac")
+			circle(x0 + 10, y0 + 30, 3, "#acacac", "#acacac")
+			circle(x0 + 30, y0 + 30, 3, "#acacac", "#acacac")
+		end
+		if (direction == "left")
+			x0 = x0 - moving
+			oval(x0, y0, 40, 30, "#00aa00", "#00cc00")
+			// Head
+			circle(x0, y0 + 15, 10, "#00aa00", "#00cc00")
+			// Feet
+			circle(x0 + 10, y0, 3, "#acacac", "#acacac")
+			circle(x0 + 30, y0, 3, "#acacac", "#acacac")
+			circle(x0 + 10, y0 + 30, 3, "#acacac", "#acacac")
+			circle(x0 + 30, y0 + 30, 3, "#acacac", "#acacac")
+		end
+		if (direction == "up")
+			y0 = y0 - moving
+			oval(x0, y0, 30, 40, "#00aa00", "#00cc00")
+			circle(x0 + 15, y0, 10, "#00aa00", "#00cc00")
+			// Feet
+			circle(x0, y0 + 10, 3, "#acacac", "#acacac")
+			circle(x0 + 30, y0 + 10, 3, "#acacac", "#acacac")
+			circle(x0, y0 + 30, 3, "#acacac", "#acacac")
+			circle(x0 + 30, y0 + 30, 3, "#acacac", "#acacac")
+		end
+		if (direction == "down")
+			y0 = y0 + moving
+			oval(x0, y0, 30, 40, "#00aa00", "#00cc00")
+			circle(x0 + 15, y0 + 40, 10, "#00aa00", "#00cc00")
+			// Feet
+			circle(x0, y0 + 10, 3, "#acacac", "#acacac")
+			circle(x0 + 30, y0 + 10, 3, "#acacac", "#acacac")
+			circle(x0, y0 + 30, 3, "#acacac", "#acacac")
+			circle(x0 + 30, y0 + 30, 3, "#acacac", "#acacac")
+		end
+
+		// Delay  a little and get a key
+		key = keyPressed
+		wait(75)
+
+		// Move the position of the turtle
+		if (key == "left")
+			x0 = x0 - 10
+			direction = "left"
+		end
+		if (key == "right")
+			x0 = x0 + 10
+			direction = "right"
+		end
+		if (key == "up")
+			y0 = y0 - 10
+			direction = "up"
+		end
+		if (key == "down")
+			y0 = y0 + 10
+			direction = "down"
+		end
+		if (key == "m")
+			moving = moving + 1
+		end
+		if (key == "s")
+			moving = 0
+		end
+	end
+	
+	clear
+	println("Thank you!")
+end

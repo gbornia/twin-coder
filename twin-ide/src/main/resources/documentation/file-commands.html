@@ -1,0 +1,41 @@
+<html>
+<head>
+    <title>File Commands</title>
+</head>
+<body>
+    <h1>File Commands</h1>
+    <hr/>
+    The following list of <b>File commands</b> are available to use in <b>TwinCoder.org</b>.<br/>
+    <br/>
+
+
+    <table border="1" width="1250">
+        <tr bgcolor="#aaaaaa">
+            <th align="left" width="150">Command</th>
+            <th align="left" width="500">Description</th>
+            <th align="left" width="600">Code Snippet</th>
+        </tr>
+        <tr>
+            <td valign="top">
+                <code>readFile</code>
+            </td>
+            <td valign="top">
+                Reads the content of a <b>text</b> file into a variable. It requires 2 arguments:
+                <ol>
+                    <li><code>variable</code>, the variable that will receive the file content</li>
+                    <li><code>file</code>, the file path or URL for the file</li>
+                </ol>
+                If the file path is a URL, the file will be downloaded into the cache. It will be kept if TwinCoder is
+                configured to keep cache, otherwise it will be deleted from cache after usage.
+            </td>
+            <td valign="top" nowrap>
+                <code>
+                    <font color="gray">//Reads a simple text file and prints it</font><br/>
+                    <font color="red">readFile(</font>a, "/users/TwinCoder/samples/hello.txt"<font color="red">)</font><br/>
+                    println(a)<br/>
+                </code>
+            </td>
+        </tr>    
+    </table>
+</body>        
+</html>

@@ -1,0 +1,20 @@
+/*
+ * Example {rotate-image.twn}
+ */
+variables
+	angle
+begin 
+   // Set the backgroun color to b black to look cooler
+	background("black")
+
+	angle = 0
+	while (keyPressed == "")
+		clear
+
+		// Draw our beloved Albert rotating by an angle of i
+		rotateImage("http://twincoder.org/images/einstein.jpg", angle, 200, 200)
+
+		angle++
+		wait(30)
+	end
+end

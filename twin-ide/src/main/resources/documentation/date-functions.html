@@ -1,0 +1,76 @@
+<html>
+<head>
+    <title>Date Functions</title>
+</head>
+<body>
+    <h1>Date Functions</h1>
+    <hr/>
+    The following list of <b>Date functions</b> are available to use in <b>TwinCoder.org</b>.<br/>
+    <br/>
+    <b>Note:</b>The dates are numbers that represent days. You can do math operations to add and subtract, for example <code>now - 1</code> represents yesterday.
+    Similarly, <code>now - 1/24</code> represents one hour ago.<br/>
+    <table border="1" width="1250">
+        <tr bgcolor="#aaaaaa">
+            <th align="left" width="150">Function</th>
+            <th align="left" width="500">Description</th>
+            <th align="left" width="600">Code Snippet</th>
+        </tr>
+        <tr>
+            <td valign="top">
+                <code>formatDate</code>
+            </td>
+            <td valign="top">
+                Returns a string of a data following a specific format, e.g .<code>formatDate(now)</code>  or <code>formatDate(now, "MM/dd")</code>.
+                The formatDate accepts 1 or 2 parameters as follows:<br/>
+                <ol>
+                    <li><code>date</code>: a date (number) to be formatted</li>
+                    <li><code>format</code> (optional): the format to be applied, the default is "MM/dd/yyyy"</li>
+                </ol>
+            </td>
+            <td valign="top" nowrap>
+                <code>
+                    <font color="gray">//Show current hour and minutes</font><br/>
+                    println(<font color="red">formatDate(</font>now<font color="red">, "hh:mm")</font>)<br/>
+                </code>
+            </td>
+        </tr>        
+         <tr>
+            <td valign="top">
+                <code>now</code>
+            </td>
+            <td valign="top">
+                Returns the current date and time <code>println(now)</code>
+            </td>
+            <td valign="top" nowrap>
+                <code>
+                    <font color="gray">//Show current hour and minutes</font><br/>
+                    println(formatDate(<font color="red">now</font>, "hh:mm"))<br/>
+                </code>
+            </td>
+        </tr>   
+        <tr>
+            <td valign="top">
+                <code>toDate</code>
+            </td>
+            <td valign="top">
+                Returns a date from a string, it allows to specify a format as well, e.g .<code>toDate("07/04/1776")</code>  or <code>toDate("1776-07-04", "yyyy-MM-dd")</code>.
+                The toDate accepts 1 or 2 parameters as follows:<br/>
+                <ol>
+                    <li><code>string</code>: the string to be transformed into a date (number)</li>
+                    <li><code>format</code> (optional): the format to be applied, the default is "MM/dd/yyyy"</li>
+                </ol>
+            </td>
+            <td valign="top" nowrap>
+                <code>
+                    <font color="gray">//Calculate your age</font><br/>
+                    print("What your date of birth (e.g. 02/14/2008)? ")
+                    read(dateOfBirth)
+                    println(Your age is ", round( (now - <font color="red">toDate(</font>dateOfBirth<font color="red">)</font>) / 365.25 ), " years old")<br/>
+                </code>
+            </td>
+        </tr>        
+
+    </table>
+    
+</body>        
+</html>

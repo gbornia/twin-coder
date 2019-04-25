@@ -1,0 +1,62 @@
+/*
+ * Example {polygon.twn}
+ */
+variables
+  x0,y0
+  x1,y1
+  x2,y2
+  a, b, c, d, e, f
+  flip
+begin
+  // Randomize some numbers
+  x0 = random(100)
+  y0 = random(100)
+  x1 = random(200)
+  y1 = random(200)
+  x2 = random(300)
+  y2 = random(300)
+
+  a = 5 - random(15)
+  b = 5 - random(15)
+  c = 5 - random(15)
+  d = 5 - random(15)
+  e = 5 - random(15)
+  f = 5 - random(15)
+  
+	flip = -1
+ 	while (keyPressed == "")
+		clear
+  		polygon(x0, y0, x1, y1, x2, y2, "red", "#ffaaaa")
+
+		// Move the points randomly
+		x0 = x0 + a
+		y0 = y0 + b
+		x1 = x1 + c
+		y1 = y1 + d
+		x2 = x2 + e
+		y2 = y2 + f
+
+		// Adjust the direction of the movement
+		if ((x0 < 0) or (x0 > width))
+			a = a * flip
+		end
+		if ((y0 < 0) or (y0 > height))
+			b = b * flip
+		end
+		if ((x1 < 0) or (x1 > width))
+			c = c * flip
+		end
+		if ((y1 < 0) or (y1 > height))
+			d = d * flip
+		end
+		if ((x2 < 0) or (x2 > width))
+			e = e * flip
+		end
+		if ((y2 < 0) or (y2 > height))
+			f = f * flip
+		end
+
+		// Wait a little to give time to view the effect
+		wait(30)
+	end
+end

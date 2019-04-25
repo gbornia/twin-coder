@@ -1,0 +1,10 @@
+/*
+ * Example {speak.twn}
+ */
+begin
+	speak("I have a dream that my four little children will one day live in a nation where they will not be judged by the color of their skin...")
+	wait(30)
+	speak("...but by the content of their character.")
+	wait(250)
+	speak("Martin Luther King")
+end

@@ -1,0 +1,454 @@
+/**
+ * 
+ * Using iconsets from https://www.iconfinder.com/iconsets/musthave
+ */
+
+package org.twincoder.ide.ui;
+
+import org.twincoder.ide.program.CodeCareTaker;
+import org.twincoder.ide.program.CodeMemento;
+import org.twincoder.ide.program.Program;
+import java.awt.Color;
+import javax.swing.JTextArea;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import javax.swing.text.Element;
+import org.twincoder.ide.compiler.Compiler;
+import org.twincoder.ide.compiler.CompilerMessage;
+import org.twincoder.ide.program.ClipboardSupport;
+import java.io.File;
+import java.io.PrintWriter;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.text.BadLocationException;
+import org.twincoder.ide.program.FileInterface;
+import java.awt.FontMetrics;
+import java.io.FileNotFoundException;
+import java.util.Timer;
+import java.util.TimerTask;
+import javax.swing.text.SimpleAttributeSet;
+import javax.swing.text.StyleConstants;
+import javax.swing.text.TabSet;
+import javax.swing.text.TabStop;
+import org.twincoder.ide.program.ResourceDisposable;
+
+/**
+ *
+ * @author Gabriel
+ */
+public class CodeEditor extends javax.swing.JPanel implements FileInterface, ClipboardSupport, ResourceDisposable {
+
+    private static final int KEYPRESSED_INTERVAL_MILLIS = 500;
+    private static final int VERIFICATION_INTERVAL_MILLIS = 300;
+    
+    private final Program program = null;
+    private final Compiler compiler = new Compiler();    
+    private final MainScreen mainScreen;
+    private File file;
+    private boolean needSave = false;
+    private int codeLength = 0;
+    private CodeCareTaker codeCareTaker = new CodeCareTaker();
+    private String name;
+    private long lastKeyTyped = 0;
+    private Timer timer = new Timer();
+    /**
+     * Creates new form CodeEditor
+     * @param mainScreen
+     */
+    public CodeEditor(MainScreen mainScreen) {
+        initComponents();
+        this.mainScreen = mainScreen;
+        
+        jTableCompiler.setModel(new CompilerTableModel(compiler));
+        jTableCompiler.getColumnModel().getColumn(0).setMinWidth(100);
+        jTableCompiler.getColumnModel().getColumn(0).setMaxWidth(130);
+        jTableCompiler.getColumnModel().getColumn(0).setCellRenderer(
+            new CompilerTableStatusCellRenderer());
+        jTableCompiler.getColumnModel().getColumn(1).setMinWidth(40);
+        jTableCompiler.getColumnModel().getColumn(1).setMaxWidth(60);
+        jTableCompiler.getColumnModel().getColumn(2).setMinWidth(100);
+        jTableCompiler.getColumnModel().getColumn(2).setMaxWidth(140);
+        jTableCompiler.getColumnModel().getColumn(3).setMinWidth(250);
+        
+        setupLineCounter();
+        setTabSpaces(2);
+        
+        jLabelFile.setText("File: No file");
+        codeCareTaker.add(new CodeMemento(getCode(), jTextPane.getCaretPosition()));
+        
+        timer.schedule(new VerifyChanges(), 1000, VERIFICATION_INTERVAL_MILLIS);
+            
+    }
+
+    public void setFileName(String name) {
+        this.name = name;
+    }
+    
+    private void setupLineCounter() {
+        JTextArea lines = new JTextArea("1");
+        lines.setBackground(Color.LIGHT_GRAY);
+        lines.setEditable(false);
+        lines.setFont(new java.awt.Font("Courier New", 0, 12)); 
+        jTextPane.getDocument().addDocumentListener(new DocumentListener(){
+            public String getLinesText(){
+                int caretPosition = jTextPane.getDocument().getLength();
+                Element root = jTextPane.getDocument().getDefaultRootElement();
+                String text = "1\n";
+                for(int i = 2; i < root.getElementIndex( caretPosition ) + 2; i++){
+                        text += i + "\n";
+                }
+                return text;
+            }
+            
+            @Override
+            public void changedUpdate(DocumentEvent de) {
+                    lines.setText(getLinesText());
+            }
+
+            @Override
+            public void insertUpdate(DocumentEvent de) {
+                    lines.setText(getLinesText());
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent de) {
+                    lines.setText(getLinesText());
+            }
+        }); 
+        jScrollPaneEditor.setRowHeaderView(lines);
+    }
+    
+    public int getCaretPositionForLine(int lineNumber) {
+        int pos = 0;
+        int i = 0;
+        String line;
+        Scanner sc = new Scanner(jTextPane.getText());
+        while (sc.hasNextLine()) {
+            line = sc.nextLine();
+            i++;
+            if (lineNumber > i) {
+                pos = pos + line.length() + 1;
+            }
+        }
+        return pos;
+    }    
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jToolBar = new javax.swing.JToolBar();
+        jLabelFile = new javax.swing.JLabel();
+        jSplitPane = new javax.swing.JSplitPane();
+        jScrollPaneEditor = new javax.swing.JScrollPane();
+        jTextPane = new javax.swing.JTextPane();
+        jScrollPaneCompiler = new javax.swing.JScrollPane();
+        jTableCompiler = new javax.swing.JTable();
+
+        setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 10, 10, 10));
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentResized(java.awt.event.ComponentEvent evt) {
+                formComponentResized(evt);
+            }
+        });
+        setLayout(new java.awt.BorderLayout());
+
+        jToolBar.setFloatable(false);
+        jToolBar.setRollover(true);
+        jToolBar.setMaximumSize(new java.awt.Dimension(36, 25));
+        jToolBar.setMinimumSize(new java.awt.Dimension(36, 25));
+        jToolBar.setPreferredSize(new java.awt.Dimension(36, 25));
+
+        jLabelFile.setText("File:");
+        jToolBar.add(jLabelFile);
+
+        add(jToolBar, java.awt.BorderLayout.PAGE_START);
+
+        jSplitPane.setDividerLocation(700);
+        jSplitPane.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
+        jSplitPane.setResizeWeight(0.75);
+        jSplitPane.setToolTipText("");
+
+        jScrollPaneEditor.setPreferredSize(null);
+
+        jTextPane.setBorder(javax.swing.BorderFactory.createEmptyBorder(6, 6, 6, 6));
+        jTextPane.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
+        jTextPane.setPreferredSize(null);
+        jTextPane.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextPaneKeyTyped(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextPaneKeyReleased(evt);
+            }
+        });
+        jScrollPaneEditor.setViewportView(jTextPane);
+
+        jSplitPane.setLeftComponent(jScrollPaneEditor);
+
+        jScrollPaneCompiler.setPreferredSize(null);
+
+        jTableCompiler.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jTableCompiler.setPreferredSize(null);
+        jTableCompiler.setRequestFocusEnabled(false);
+        jTableCompiler.setRowHeight(20);
+        jTableCompiler.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableCompilerMouseClicked(evt);
+            }
+        });
+        jScrollPaneCompiler.setViewportView(jTableCompiler);
+
+        jSplitPane.setRightComponent(jScrollPaneCompiler);
+
+        add(jSplitPane, java.awt.BorderLayout.CENTER);
+    }// </editor-fold>//GEN-END:initComponents
+
+    public String getCode() {
+        try {
+            return jTextPane.getDocument().getText(0, jTextPane.getDocument().getLength());
+        } catch (BadLocationException ex) {
+            Logger.getLogger(CodeEditor.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    public int getCodeLenght() {
+        return jTextPane.getDocument().getLength();
+    }
+    public void compile() {
+        Program aProgram = getCompiledProgram();
+    }
+    
+    public Program getCompiledProgram() {
+        return compiler.compileProgram(getFileName(), getCode());
+    }
+    
+    public boolean isUndoAvailable() {
+        return codeCareTaker.hasPrevious();
+    }
+    
+    public boolean isRedoAvailable() {
+        return codeCareTaker.hasNext();
+    }
+    
+    public void undo() {
+        applyMemento(codeCareTaker.getPrevious());
+    }
+    
+    public void redo() {
+        applyMemento(codeCareTaker.getNext());
+    }
+    
+    private void applyMemento(CodeMemento memento) {
+        if (memento != null) {
+            jTextPane.setText(memento.getCode());
+            jTextPane.setCaretPosition(memento.getCaretPosition());
+            EditorHighlighter.highlight(jTextPane);
+            checkForChanges();
+            mainScreen.validateMenus();
+        }
+    }
+
+    @Override
+    public void disposeResources() {
+        if (timer != null) {
+            timer.cancel();
+        }
+
+    }
+    
+    class VerifyChanges extends TimerTask {
+
+        @Override
+        public void run() {
+            if (lastKeyTyped > 0 && System.currentTimeMillis() - lastKeyTyped >= KEYPRESSED_INTERVAL_MILLIS) {
+                lastKeyTyped = 0;
+                EditorHighlighter.highlight(jTextPane);
+                codeCareTaker.add(new CodeMemento(getCode(), jTextPane.getCaretPosition()));
+                checkForChanges();
+                mainScreen.validateMenus();
+            }
+        }
+        
+    }
+    private void jTextPaneKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextPaneKeyReleased
+
+    }//GEN-LAST:event_jTextPaneKeyReleased
+
+    private void jTableCompilerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableCompilerMouseClicked
+        if( evt.getClickCount() == 2 && jTableCompiler.getSelectedRowCount() > 0) {
+            java.awt.EventQueue.invokeLater(() -> {
+                try {
+                    CompilerMessage message = ((CompilerTableModel)jTableCompiler.getModel()).getCompilerMessage(jTableCompiler.getSelectedRow());
+                    if (message!=null) {
+                        jTextPane.setCaretPosition(getCaretPositionForLine(message.getLine()+1));
+                        jTextPane.requestFocus();
+                    }
+                } catch (Exception ex) {
+                    Logger.getLogger(CodeEditor.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            });
+        }
+    }//GEN-LAST:event_jTableCompilerMouseClicked
+
+    private void jTextPaneKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextPaneKeyTyped
+        lastKeyTyped = System.currentTimeMillis();
+    }//GEN-LAST:event_jTextPaneKeyTyped
+
+    private void formComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentResized
+        jSplitPane.setDividerLocation(0.80);
+    }//GEN-LAST:event_formComponentResized
+
+    public void checkForChanges() {
+        if (codeLength != getCodeLenght()) {
+            needSave = true;
+            codeLength = getCodeLenght();
+        }
+    }
+    
+    private void setTabSpaces(int charactersPerTab) {
+        FontMetrics fm = jTextPane.getFontMetrics(getFont());
+        int charWidth = fm.charWidth('0');
+        int tabWidth = charWidth * charactersPerTab;
+
+        TabStop[] tabs = new TabStop[10];
+
+        for (int j = 0; j < tabs.length; j++) {
+            int tab = j + 1;
+            tabs[j] = new TabStop(tab * tabWidth);
+        }
+
+        TabSet tabSet = new TabSet(tabs);
+        SimpleAttributeSet attributes = new SimpleAttributeSet();
+        StyleConstants.setTabSet(attributes, tabSet);
+        jTextPane.setParagraphAttributes(attributes, false);
+    }
+    
+    public void loadContent(String name, String content) {
+        this.name = name;
+        if (content != null && name != null) {
+            jTextPane.setText(content);
+            EditorHighlighter.highlight(jTextPane);
+            mainScreen.setName(this, name); 
+            mainScreen.select(this);
+            needSave = false;
+            codeLength = getCodeLenght();
+
+            codeCareTaker = new CodeCareTaker();
+            codeCareTaker.add(new CodeMemento(getCode(), jTextPane.getCaretPosition()));   
+        }
+    }
+    
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabelFile;
+    private javax.swing.JScrollPane jScrollPaneCompiler;
+    private javax.swing.JScrollPane jScrollPaneEditor;
+    private javax.swing.JSplitPane jSplitPane;
+    private javax.swing.JTable jTableCompiler;
+    private javax.swing.JTextPane jTextPane;
+    private javax.swing.JToolBar jToolBar;
+    // End of variables declaration//GEN-END:variables
+
+    @Override
+    public boolean isSaveAvailable() {
+        return (file != null);
+    }
+
+    @Override
+    public boolean isSaveNeeded() {
+        return needSave;
+    }
+
+    @Override
+    public boolean isSaveAsAvailable() {
+        return true;
+    }
+
+    @Override
+    public boolean loadFile(File file) {
+        
+        if (file != null) {
+            try {
+                this.file = file;
+                Scanner sr = new Scanner(file);
+                String contentCode = "";
+                while (sr.hasNextLine()) {
+                    contentCode = contentCode + sr.nextLine() + (sr.hasNextLine()?"\n":"");
+                }
+                
+                loadContent(file.getName(), contentCode);
+                jLabelFile.setText("File: " + file.getAbsolutePath());
+      
+                return true; 
+            } catch (FileNotFoundException e) {
+                JOptionPane.showMessageDialog(this, "Error found while trying to open file " + file.getName(), "Error opening file", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        
+        return false;
+    }
+
+    @Override
+    public boolean save() {
+        return saveToFile(file);
+    }
+    
+    
+    @Override
+    public boolean saveToFile(File file) {
+        if (file != null) {
+            this.file = file;
+            try (PrintWriter writer = new PrintWriter(file)) {
+                writer.println(getCode());
+                mainScreen.setName(this, file.getName());
+                needSave = false;
+                jLabelFile.setText("File: " + file.getAbsolutePath());
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "Error found while trying to save to file " + file.getName(), "Error saving file", JOptionPane.ERROR_MESSAGE);
+
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public File getFile() {
+        return file;
+    }
+
+    @Override
+    public String getSelectedText() {
+        return jTextPane.getSelectedText();
+    }
+
+    @Override
+    public void replaceSelectedText(String value) {
+        jTextPane.replaceSelection(value);
+    }
+
+    @Override
+    public String getFileName() {
+        if (file != null) {
+            return file.getName();
+        }
+        return name;
+    }
+
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>TwinCoder.org</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body style="font-family:Helvetica,Arial,sans-serif;color:#777777;background-color:#eeeeee;">
+
+<div style="padding:10px;text-align:left;">
+    <table border="0"  width="100%">
+        <tr>
+            <td width="80">
+                <img src="twin-coder-128.png" width="72">
+            </td>
+            <td>
+                <h1>TwinCoder.org</h1>
+                <h4>Easy platform for kids to learn how to code!</h4>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <a href="index.html" class="btn btn-default" role="button">Home</a>
+                <a href="gallery.html" class="btn btn-default disabled" role="button">Gallery</a>
+                <a href="lessons.html" class="btn btn-default" role="button">Lessons</a>
+                <a href="about.html" class="btn btn-default" role="button">About</a>
+                <hr/>
+            </td>            
+        </tr>                
+    </table>
+</div>
+
+<div class="container-fluid">
+    
+    <div class="panel panel-info">
+      <div class="panel-heading">Gallery</div>
+
+      <div class="panel-body">
+          See below some of the examples created by kids! To send yours and see it here, please email it to <a href="mailto:twincoder.org@gmail.com" target="_top">twincoder.org@gmail.com</a>. 
+          Make sure to mention your name, age and school.
+      </div>
+    </div>       
+
+    <div class="panel panel-success">
+        <div class="panel-heading">
+        <div class="media">
+          <div class="media-left media-top">
+            <img src="images/girl-05.png" class="media-object" style="width:60px">
+          </div>
+          <div class="media-body">
+              <a data-toggle="collapse" href="#sample-1">  
+            <b class="media-heading">My garden code</b><br/></a>
+            Maria Helena, 10 years old<br/>
+            Ridgeway Elementary School
+          </div>
+        </div>
+        </div>
+
+      <div id="sample-1" class="panel-body panel-collapse collapse">
+<pre><code>begin
+
+background("#effc79")
+println("           MY Garden")
+println("The sky is blue like bellflowers ")
+println("The aroma in the sky smells like roses ")
+println("When I look at a salvia it reminds me of a vine of grapes as sweet as you")
+println("A dandelion is nice and bright like your smile")
+
+// Draw the stem
+line(300,200,300,400,"green", 4)
+
+// Below is the flower
+circle(320,160, 30, "black", "yellow")
+circle(280,160, 30, "black", "yellow")
+circle(260,200, 30, "black", "yellow")
+circle(280,240, 30, "black", "yellow")
+circle(320,240, 30, "black", "yellow")
+circle(340,200, 30, "black", "yellow")
+circle(300,200, 20, "black", "#9669af")
+
+//Below are leaves
+oval(300,340,60,30,"#126d17","green")
+oval(260,300,40,20,"#126d17","green")
+
+//my poem
+speak("my garden")
+speak("the sky is blue like bellflowers ")
+speak("the aroma in the sky smells like roses ")
+speak("when i look at a salvia it reminds me of a vine of grapes as sweet as you")
+speak("a dandelion is nice and bright like your smile")
+
+println("  Thank you and good day!")
+speak("  thank you and good day!")
+
+end</code></pre>
+      </div>
+    </div>   
+    
+  <div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+</div>
+
+<div class="container-fluid"><hr/>© copyright TwinCoder.org</div>
+
+</body>
+</html>

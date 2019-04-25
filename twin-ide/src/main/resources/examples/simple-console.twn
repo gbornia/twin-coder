@@ -1,0 +1,16 @@
+/*
+ * Example {simple-console.twn}
+ */
+variables
+	a, b
+begin
+	print("Value of A = ")
+	read(a)
+
+	print("Value of B = ")
+	read(b)
+
+	clear
+
+	println("The result of A + B is ", a + b)
+end

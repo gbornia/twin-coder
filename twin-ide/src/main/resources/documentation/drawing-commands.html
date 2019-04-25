@@ -1,0 +1,244 @@
+<html>
+<head>
+    <title>Drawing Commands</title>
+</head>
+<body>
+    <h1>Drawing Commands</h1>
+    <hr/>
+    The following list of <b>Drawing commands</b> are available to use in <b>TwinCoder.org</b>.<br/>
+    <br/>
+
+
+    <table border="1" width="1250">
+        <tr bgcolor="#aaaaaa">
+            <th align="left" width="150">Command</th>
+            <th align="left" width="500">Description</th>
+            <th align="left" width="600">Code Snippet</th>
+        </tr>
+        <tr>
+            <td valign="top">
+                <code>background</code>
+            </td>
+            <td valign="top">
+                Sets the background color of the canvas. The parameter is the following<br/>
+                <ol>
+                    <li><code>color</code>, the color to paint the background (default is white)</li>
+                </ol>           
+            </td>
+            <td valign="top" nowrap>
+                <code>
+                    <font color="gray">//Paints the background black</font><br/>
+                    <font color="red">background(</font>"black"<font color="red">)</font>
+                </code>
+            </td>
+        </tr> 
+        <tr>
+            <td valign="top">
+                <code>circle</code>
+            </td>
+            <td valign="top">
+                Draws a circle on the canvas, the parameters are as follows:<br/>
+                <ol>
+                    <li><code>x</code>, the horizontal position</li>
+                    <li><code>y</code>, the vertical position</li>
+                    <li><code>radius</code>, the radius of the circle</li>
+                    <li><code>borderColor</code>, the color of the border <i>[Optional: default is black]</i></li>
+                    <li><code>fillColor</code>, the color of the interior <i>[Optional: default is white]</i></li>
+                </ol>           
+            </td>
+            <td valign="top" nowrap>
+                <code>
+                    <font color="gray">//Draws the sun</font><br/>
+                    <font color="red">circle(</font>550, 350, 80, "red","yellow"<font color="red">)</font>
+                </code>
+            </td>
+        </tr> 
+        <tr>
+            <td valign="top">
+                <code>clear</code>
+            </td>
+            <td valign="top">
+                Clears the entire output canvas.
+            </td>
+            <td valign="top" nowrap>
+                <code>
+                    <font color="gray">//Draws a moving circle</font><br/>
+                    speed = 10<br/>
+                    start = 100<br/>
+                    t = 0<br/>
+                    while (t &lt; 10)<br/>
+                    &nbsp;&nbsp;<font color="red">clear</font><br/>
+                    &nbsp;&nbsp;circle(start + t*speed, 200, 100)<br/>
+                    &nbsp;&nbsp;t = t + 1<br/>                   
+                    end
+                </code>
+            </td>
+        </tr> 
+        <tr>
+            <td valign="top">
+                <code>image</code>
+            </td>
+            <td valign="top">
+                Draws an image from a file or a URL:<br/>
+                <ol>
+                    <li><code>image</code>, the image path (local file or URL)</li>
+                    <li><code>x</code>, the horizontal position</li>
+                    <li><code>y</code>, the vertical position</li>
+                    <li><code>width</code>, the width to draw the image, if empty uses the image width <i>[Optional: default is the image width]</i></li>
+                    <li><code>height</code>, the height to draw the image, if empty uses the image height  <i>[Optional: default is the image height]</i></li>
+                </ol>           
+            </td>
+            <td valign="top" nowrap>
+                <code>
+                    <font color="gray">//Draws Einstein picture</font><br/>
+                    <font color="red">image(</font>"https://twincoder.org/images/einstein.jpeg", 100, 80<font color="red">)</font>
+                </code>
+            </td>
+        </tr>         
+         <tr>
+            <td valign="top">
+                <code>line</code>
+            </td>
+            <td valign="top">
+                Draws a line on the canvas, the parameters are as follows:<br/>
+                <ol>
+                    <li><code>x0</code>, the horizontal position of the start point</li>
+                    <li><code>y0</code>, the vertical position of the start point</li>
+                    <li><code>x1</code>, the horizontal position of the end point</li>
+                    <li><code>y1</code>, the vertical position of the end point</li>
+                    <li><code>lineColor</code>, the color of the line <i>[Optional: default is black]</i></li>
+                </ol>           
+            </td>
+            <td valign="top" nowrap>
+                <code>
+                    <font color="gray">//Draws a blue line</font><br/>
+                    <font color="red">line(</font>20, 35, 120, 250, "blue"<font color="red">)</font>
+                </code>
+            </td>
+        </tr> 
+        <tr>
+            <td valign="top">
+                <code>oval</code>
+            </td>
+            <td valign="top">
+                Draws an oval shape on the canvas, the parameters are as follows:<br/>
+                <ol>
+                    <li><code>x</code>, the horizontal position</li>
+                    <li><code>y</code>, the vertical position</li>
+                    <li><code>width</code>, the width of the oval</li>
+                    <li><code>height</code>, the height of the oval</li>
+                    <li><code>borderColor</code>, the color of the border <i>[Optional: default is black]</i></li>
+                    <li><code>fillColor</code>, the color of the interior <i>[Optional: default is white]</i></li>
+                </ol>    
+                Note that if width and height are the same, your are actually drawing a circle. The main difference is that the 
+                circle is drawn relative to it's center (x,y) while oval is relative to the top left corner of the rectangle that
+                surrounds the oval shape.
+            </td>
+            <td valign="top" nowrap>
+                <code>
+                    <font color="gray">//Draws an oval</font><br/>
+                    <font color="red">oval(</font>550, 350, 80, 50, "red","yellow"<font color="red">)</font>
+                </code>
+            </td>
+        </tr> 
+         <tr>
+            <td valign="top">
+                <code>polygon</code>
+            </td>
+            <td valign="top">
+                Draws a polygon on the canvas, the parameters are as follows:<br/>
+                <ol>
+                    <li><code>x0</code>, the horizontal position of the start point</li>
+                    <li><code>y0</code>, the vertical position of the start point</li>
+                    <li><code>x1</code>, the horizontal position of the 2nd point</li>
+                    <li><code>y1</code>, the vertical position of the 2nd point</li>
+                    <li><code>x2</code>, the horizontal position of the 3rd point</li>
+                    <li><code>y2</code>, the vertical position of the 3rd point</li>  
+                    <li><code>xN</code>, the horizontal position of the Nth point <i>[Optional and Repeatable]</i></li>
+                    <li><code>yN</code>, the vertical position of the Nth point <i>[Optional and Repeatable]</i></li>
+                    <li><code>lineColor</code>, the color of the line <i>[Optional: default is black]</i></li>
+                    <li><code>fillColor</code>, the color of the interior <i>[Optional: default is white]</i></li>
+                    
+                </ol>         
+                The polygon needs at least 3 pairs of point (x,y) to be formed (triangle). To use more points, keep adding
+                pairs of (x,y) to the list. For example, to draw a polygon with 5 vertices it would be something like
+                <code>polygon(10,10,15,30,40,28,120,35,50,19)</code> where the (x,y) points (10,10), (13,30), (40,28), (120,35) and (50,19) form
+                the vertices of the polygon.
+            </td>
+            <td valign="top">
+                <code>
+                    <font color="gray">//Draws a blue star</font><br/>
+                    <font color="red">polygon(</font>300,100,350,300,550,350,350,400,300,600,250,400,50,350,250,300,"blue","blue"<font color="red">)</font>
+                </code>
+            </td>
+        </tr>                 
+         <tr>
+            <td valign="top">
+                <code>rectangle</code>
+            </td>
+            <td valign="top">
+                Draws a rectangle on the canvas, the parameters are as follows:<br/>
+                <ol>
+                    <li><code>x0</code>, the horizontal position of the top left corner</li>
+                    <li><code>y0</code>, the vertical position of the top left corner</li>
+                    <li><code>x1</code>, the horizontal position of the bottom right corner</li>
+                    <li><code>y1</code>, the vertical position of the bottom right corner</li>
+                    <li><code>borderColor</code>, the color of the border <i>[Optional: default is black]</i></li>
+                    <li><code>fillColor</code>, the color of the interior <i>[Optional: default is white]</i></li>
+                </ol>           
+            </td>
+            <td valign="top" nowrap>
+                <code>
+                    <font color="gray">//Draws a rectangle with a red line</font><br/>
+                    <font color="red">rectangle(</font>20, 35, 120, 250, "red"<font color="red">)</font>
+                </code>
+            </td>
+        </tr>  
+       <tr>
+            <td valign="top">
+                <code>image</code>
+            </td>
+            <td valign="top">
+                Draws an image from a file or a URL and rotates it to an angle:<br/>
+                <ol>
+                    <li><code>image</code>, the image path (local file or URL)</li>
+                    <li><code>angle</code>, the angle of rotation</li>
+                    <li><code>x</code>, the horizontal position</li>
+                    <li><code>y</code>, the vertical position</li>
+                    <li><code>width</code>, the width to draw the image, if empty uses the image width <i>[Optional: default is the image width]</i></li>
+                    <li><code>height</code>, the height to draw the image, if empty uses the image height  <i>[Optional: default is the image height]</i></li>
+                </ol>           
+            </td>
+            <td valign="top" nowrap>
+                <code>
+                    <font color="gray">//Draws Einstein picture with 45 degrees of rotation</font><br/>
+                    <font color="red">rotateImage(</font>"https://twincoder.org/images/einstein.jpeg", 45, 100, 80<font color="red">)</font>
+                </code>
+            </td>
+        </tr>           
+         <tr>
+            <td valign="top">
+                <code>text</code>
+            </td>
+            <td valign="top">
+                Writes text to the canvas, the parameters are as follows:<br/>
+                <ol>
+                    <li><code>x0</code>, the horizontal position of the top left corner</li>
+                    <li><code>y0</code>, the vertical position of the top left corner</li>
+                    <li><code>text</code>, the text to be written</li>
+                    <li><code>color</code>, the color of the text <i>[Optional: default is black]</i></li>
+                    <li><code>fontName</code>, the name of the font <i>[Optional: default is Arial]</i></li>
+                    <li><code>fontSize</code>, the size of the font <i>[Optional: default is 12]</i></li>
+                    <li><code>fontStyle</code>, the style of the font (plain, bold or italic) <i>[Optional: default is plain]</i></li>
+                </ol>           
+            </td>
+            <td valign="top" nowrap>
+                <code>
+                    <font color="gray">//Writes Hello World</font><br/>
+                    <font color="red">text(</font>200, 50, "Hello World", "red", "Verdana", 24, "italic"<font color="red">)</font>
+                </code>
+            </td>
+        </tr>  
+    </table>
+</body>        
+</html>

@@ -1,0 +1,153 @@
+<html>
+<head>
+    <title>String Functions</title>
+</head>
+<body>
+    <h1>String Functions</h1>
+    <hr/>
+    The following list of <b>String functions</b> are available to use in <b>TwinCoder.org</b>.<br/>
+    <br/>
+
+
+    <table border="1" width="1250">
+        <tr bgcolor="#aaaaaa">
+            <th align="left" width="150">Function</th>
+            <th align="left" width="500">Description</th>
+            <th align="left" width="600">Code Snippet</th>
+        </tr>
+         <tr>
+            <td valign="top">
+                <code>concat</code>
+            </td>
+            <td valign="top">
+                Returns the concatenation of multiple strings(e.g. <code>concat("Hello", " ","World") = "Hello World"</code>).
+            </td>
+            <td valign="top" nowrap>
+                <code>
+                    <font color="gray">//What's the name?</font><br/>
+                    firstName = "Scott"<br/>
+                    lastName = "Adams"<br/>
+                    fullName = <font color="red">concat(</font>firstName, " ", lastName<font color="red">)</font>
+                </code>
+            </td>
+        </tr>   
+        <tr>
+            <td valign="top">
+                <code>length</code>
+            </td>
+            <td valign="top">
+                Returns the length of a string(e.g. <code>length("Hello World") = 11</code>).
+            </td>
+            <td valign="top">
+                <code>
+                    <font color="gray">//What's the name?</font><br/>
+                    line = "Name: Scott Adams"<br/>
+                    println("The name is ",substring(line, 6, <font color="red">length(</font>line<font color="red">)</font>))
+                </code>
+            </td>
+        </tr>        
+        <tr>
+            <td valign="top">
+                <code>lower</code>
+            </td>
+            <td valign="top">
+                Returns the lower case version of a string(e.g. <code>lower("Hello World") = "hello world"</code>).
+            </td>
+            <td valign="top" nowrap>
+                <code>
+                    <font color="gray">//Do you want to continue?</font><br/>
+                    read(answer)<br/>
+                    if (<font color="red">lower(</font>answer<font color="red">)</font> = "no")<br/>
+                    &nbsp;&nbsp;println("Goodbye")<br/>
+                    &nbsp;&nbsp;exit<br/>
+                    end
+                </code>
+            </td>
+        </tr>  
+        <tr>
+            <td valign="top">
+                <code>position</code>
+            </td>
+            <td valign="top">
+                Returns the position of a substring inside a string (e.g. <code>position("Hello World", "World") = 6</code>). The function returns -1 if 
+                the substring is not found.
+            </td>
+            <td valign="top" nowrap>
+                <code>
+                    <font color="gray">//What's the name?</font><br/>
+                    line = "Ridgeway School"<br/>
+                    if <font color="red">position(</font>line,"School"<font color="red">)</font>) > -1<br/>
+                    &nbsp;&nbsp;println("It's a school")<br/>
+                    end
+                </code>
+            </td>
+        </tr>          
+        <tr>
+            <td valign="top">
+                <code>replace</code>
+            </td>
+            <td valign="top">
+                Replaces a search string within a string (e.g. <code>replace("Hello World","ello","appy") = "Happy World"</code>).<br/>
+                <b>Note:</b> All occurrences will be replaced. Also as an advanced topic, the search string is a regex expression, which means that
+                more special replacements can be made. It also indicates that using some special characters might lead to results different than expected 
+                (for example, trying to replace the $ by something else, needs special treatment since $ is a special regex indicator).
+            </td>
+            <td valign="top" nowrap>
+                <code>
+                    <font color="gray">//Remove spaces from a string</font><br/>
+                    line = "Studies about math"<br/>
+                    file = concat(<font color="red">replace(</font>line, " ", "-"<font color="red">)</font>, ".txt)
+                </code>
+            </td>
+        </tr>         
+        <tr>
+            <td valign="top">
+                <code>substring</code>
+            </td>
+            <td valign="top">
+                Returns a substring of a string(e.g. <code>substring("Hello World",6,11) = "World"</code>).
+            </td>
+            <td valign="top">
+                <code>
+                    <font color="gray">//What's the name?</font><br/>
+                    line = "Name: Scott Adams"<br/>
+                    println("The name is ",<font color="red">substring(</font>line, 6, length(line)<font color="red">)</font>)
+                </code>
+            </td>
+        </tr>    
+        <tr>
+            <td valign="top">
+                <code>trim</code>
+            </td>
+            <td valign="top">
+                Returns the trimmed version of a string(e.g. <code>trim("  Hello World  ") = "Hello World"</code>).
+            </td>
+            <td valign="top" nowrap>
+                <code>
+                    <font color="gray">//Remove spaces from the answer</font><br/>
+                    read(answer)<br/>
+                    answer = (<font color="red">trim(</font>answer<font color="red">)<br/>
+                </code>
+            </td>
+        </tr>          
+        <tr>
+            <td valign="top">
+                <code>upper</code>
+            </td>
+            <td valign="top">
+                Returns the upper case version of a string(e.g. <code>upper("Hello World") = "HELLO WORLD"</code>).
+            </td>
+            <td valign="top" nowrap>
+                <code>
+                    <font color="gray">//Do you want to continue?</font><br/>
+                    read(answer)<br/>
+                    if (<font color="red">upper(</font>answer<font color="red">)</font> = "NO")<br/>
+                    &nbsp;&nbsp;println("Goodbye")<br/>
+                    &nbsp;&nbsp;exit<br/>
+                    end
+                </code>
+            </td>
+        </tr>         
+    </table>
+</body>        
+</html>

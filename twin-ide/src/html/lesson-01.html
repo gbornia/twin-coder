@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>TwinCoder.org</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body style="font-family:Helvetica,Arial,sans-serif;color:#777777;background-color:#eeeeee;">
+
+<div style="padding:10px;text-align:left;">
+    <table border="0"  width="100%">
+        <tr>
+            <td width="80">
+                <img src="twin-coder-128.png" width="72">
+            </td>
+            <td>
+                <h1>TwinCoder.org</h1>
+                <h4>Easy platform for kids to learn how to code!</h4>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <a href="index.html" class="btn btn-default" role="button">Home</a>
+                <a href="gallery.html" class="btn btn-default" role="button">Gallery</a>
+                <a href="lessons.html" class="btn btn-default" role="button">Lessons</a>
+                <a href="about.html" class="btn btn-default" role="button">About</a>
+                <hr/>
+            </td>            
+        </tr>                
+    </table>
+</div>
+
+<div class="container-fluid">
+    
+    <div class="panel panel-info">
+      <div class="panel-heading">Lesson 01 - Use of <code>print</code>, <code>println</code> and <code>background</code></div>
+
+      <div class="panel-body">
+          Hi, in this lesson we'll create our first program. And we will learn about 3 commands:<br>
+          <ul>
+              <li><b>print</b>: writes a text to the screen, the next text will write from where it stopped</li>
+              <li><b>println</b>: writes a text to the screen and moves to the next line, the next text will write the line below</li>
+              <li><b>background</b>: paints the whole screen with a color</li>              
+          </ul>
+    </div> 
+    </div>
+      
+    <div class="panel panel-success">
+        <div class="panel-heading">Command <b>print</b> and <b>println</b></div>
+
+      <div class="panel-body">
+          All programs begin with <b>begin</b> and end with an <b>end</b>. Inside that block, we'll enter some commands. See the example below.<br>          
+<pre><code>begin
+  print("Hello World!")
+end</code></pre>
+          The program above is a classic in programming. It tells the first words of the program! Now try the following using <b>print</b>:<br/>
+<pre><code>begin
+  print("Hi ")
+  print("I'm ")
+  print("coding.")
+end</code></pre>
+          What has happened? Now try the following using <b>println</b> and see the difference:<br/>
+<pre><code>begin
+  println("Hi ")
+  println("I'm ")
+  println("coding.")
+end</code></pre>
+          Did you see how the text was displayed? <b>print</b> makes the next command start from where it stopped, while <b>println</b> writes to the screen
+          and moves on to the next line.<br/>
+          <br/>
+          Both <b>print</b> and <b>println</b> accept multiple parameters, to understand that, let's try the following:
+<pre><code>begin
+  print("Hi, my name is ", "Maria ")
+  println("and I'm ", 10, " years old")
+  println("Bye ")
+  println("Bye ")
+end</code></pre>
+          Please answer the following questions:
+          <ol>
+              <li>Why the sentence <i>Hi, my name is Maria and I'm 10 years old</i> appeared in the same line?</li>
+              <li>Why the sentence <i>Bye Bye</i> appeared in the two different lines?</li>
+              <li>How can you make <i>Bye Bye</i> appear in the same line?</li>
+              <li>Did you notice that <i>10</i> does not have quotes?</li>
+          </ol>
+      </div>       
+    </div> 
+      
+    <div class="panel panel-warning">
+        <div class="panel-heading">Command <b>background</b></div>
+
+        <div class="panel-body">
+          Now let's have some fun with colors. The command <b>background</b> paints the screen with any given color. Let's try the following:<br>          
+<pre><code>begin
+  background("yellow")
+  println("Hello World!")
+end</code></pre>
+          Did you see the what happened? Now try different colors. The colors accepted are:
+          <ul>
+              <li>black</li>
+              <li>blue</li>
+              <li>cyan</li>
+              <li>darkGray</li>
+              <li>gray</li>
+              <li>green</li>
+              <li>lightGray</li>
+              <li>magenta</li>
+              <li>orange</li>
+              <li>pink</li>
+              <li>red</li>
+              <li>white</li>
+              <li>yellow</li>              
+          </ul>
+          There is another way to pick from millions of colors! Any color can be represented by 
+          a code, for example, red is <code>#ff0000</code>. To choose the correct code, go to Google and search for 
+          <a href="https://www.google.com/search?q=hex+color+picker"  target="_blank" rel="noopener noreferrer">hexa color picker</a> and find 
+          the code for your favorite color! My favorite color is <code>#ffda9b</code>, see how to do it:
+<pre><code>begin
+  background("#ffda9b")
+  println("Hello World!")
+end</code></pre>          
+        </div>
+    </div>
+
+    <div class="panel panel-danger">
+        <div class="panel-heading">Exercises</div>
+
+      <div class="panel-body">
+          <ol>
+              <li>Create a program that tells about you: your name, how old are you and what's your school.</li>
+              <li>Now do the same as above, but make sure you use more than one parameter for the, for example do not use quotations for the number that 
+              represents your age.</li>
+              <li>Modify the program to use both <code>print</code> and <code>println</code>.</li>
+              <li>Set your program with your favorite color (if you use dark colors it will be hard to read).</li>
+          </ol>
+      </div>
+    </div>
+      
+</div>
+
+<div class="container-fluid"><hr/>© copyright TwinCoder.org</div>
+
+</body>
+</html>

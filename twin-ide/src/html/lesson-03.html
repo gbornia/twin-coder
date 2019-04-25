@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>TwinCoder.org</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body style="font-family:Helvetica,Arial,sans-serif;color:#777777;background-color:#eeeeee;">
+
+<div style="padding:10px;text-align:left;">
+    <table border="0"  width="100%">
+        <tr>
+            <td width="80">
+                <img src="twin-coder-128.png" width="72">
+            </td>
+            <td>
+                <h1>TwinCoder.org</h1>
+                <h4>Easy platform for kids to learn how to code!</h4>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <a href="index.html" class="btn btn-default" role="button">Home</a>
+                <a href="gallery.html" class="btn btn-default" role="button">Gallery</a>
+                <a href="lessons.html" class="btn btn-default" role="button">Lessons</a>
+                <a href="about.html" class="btn btn-default" role="button">About</a>
+                <hr/>
+            </td>            
+        </tr>                
+    </table>
+</div>
+
+<div class="container-fluid">
+    
+    <div class="panel panel-info">
+      <div class="panel-heading">Lesson 03 - Use of <code>read</code> and <code>speak</code></div>
+
+      <div class="panel-body">
+          Hi, in this lesson we will learn how to use two important commands:<br/>
+          <ul>
+              <li><b>read</b>: reads from the keyboard</li>
+              <li><b>speak</b>: makes the computer speak a text</li>              
+          </ul>
+          We will also use the commands we've learnt in past lessons.
+      </div>
+    </div>  
+      
+    <div class="panel panel-success">
+      <div class="panel-heading">Command <code>read</code></div>
+
+      <div class="panel-body">
+          In the previous lesson we learned how to use <i>variables</i>. We simply defined the variables and set a value for it
+          so that we could use it. With the <code>read</code> command we will ask the person using the computer to enter the value
+          and we will store it in a variable. Check the code below:
+ <pre><code>variables
+  firstName, lastName
+begin
+  print("What's your first name?")
+  read(firstName)
+  print("What's your last name?")
+  read(lastName)
+
+  println("Hi ", firstName, " ", lastName, " it is a pleasure to meet you!")
+  println("Your last name ", lastName, " is very familiar, is your family from Westchester too?")
+end</code></pre>      
+         Notice that in the code above, we are asking the person that's using our program to enter her/his first name and last name. Later, we will print 
+         to the screen both first name and last name combined, and mention how familiar his last name is. Try it yourself! <br/>
+         <br/>
+         We can use <code>read</code> to ask for number and afterwards do some calculations. Check it out:
+ <pre><code>variables
+  sideA, sideB, area
+begin
+  print("What's the first side of the rectangle?")
+  read(sideA)
+  print("What's the other side of the rectangle?")
+  read(sideB)
+
+  area = sideA * sideB
+  
+  println("The area of the rectangle is ", area)
+end</code></pre>         
+         The command <code>read</code> is one of the most important commands and you will use it in many occasions. Make sure you practice and you understand how it works.            
+    </div>       
+    </div>
+    
+    
+    <div class="panel panel-warning">
+      <div class="panel-heading">Command <code>speak</code></div>
+
+      <div class="panel-body">
+          The command <code>speak</code> is not the most important command you need to learn, but it is really fun. It is a very simple one
+          that we can use to make the computer speak! Check the code below:
+ <pre><code>
+begin
+  speak("Hello World!")
+end</code></pre>      
+          Now you are familiar with the "Hello World" classic example. You can also use speak just like print and println, passing multiple parameters. Like this:<br/>
+ <pre><code>variables
+  age
+begin
+  age = 10
+  speak("My age is ", age, " years old")
+end</code></pre>            
+          Try it yourself! <br/>
+         <br/>
+            <div class="panel panel-default">
+                <div class="panel-heading">Important</div>
+
+                <div class="panel-body">
+                    <ul>
+                        <li>Make sure you have your sound on, otherwise you will not hear the computer speak and it will look like nothing happened.</li>
+                        <li>Be careful to not disturb other people next to you, you can use a headphone while you are practicing</li>
+                        <li>Be respectful and do not attempt to make the computer say bad words, remember that others might be listening</li>
+                    </ul>
+                    
+                </div>
+            </div>
+         
+    </div>       
+    </div>    
+
+    <div class="panel panel-danger">
+      <div class="panel-heading">Exercises</div>
+
+      <div class="panel-body">
+          Now it is time to practice what we've learned. Below are some nice exercises!<br/>
+          <ol>
+              <li>Create a program that asks how many pizzas the customer wants and prints to the screen the total (each of our pizzas is 14 dollars)</li>
+              <li>Create a program that asks for the side of a square, and calculates the area and the perimeter</li>
+              <li>Modify the programs above so that the computer speaks the total of the pizzas, the area and the perimeter of the square</li>
+          </ol>
+          
+            <div class="panel panel-default">
+                <div class="panel-heading">Math tip</div>
+
+                <div class="panel-body">
+                    I know you are an ace in math and don't need help, but other fellow students might not remember and it is required for the exercises above, so here it goes:<br/>
+                    <ul>
+                        <li>The area of the square is the side times itself (<code>area = side * side</code>), i.e. the square of the side</li>
+                        <li>The perimeter of the square is the side times 4 (<code>area = 4 * side</code> or <code>area = side + side + side + side</code>)</li>
+                    </ul>
+                </div>
+            </div>
+         
+        </div>       
+    </div>    
+</div>
+    
+
+<div class="container-fluid"><hr/>© copyright TwinCoder.org</div>
+
+</body>
+</html>

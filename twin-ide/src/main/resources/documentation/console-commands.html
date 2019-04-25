@@ -1,0 +1,137 @@
+<html>
+<head>
+    <title>Console Commands</title>
+</head>
+<body>
+    <h1>Console Commands</h1>
+    <hr/>
+    The following list of <b>Console commands</b> are available to use in <b>TwinCoder.org</b>.<br/>
+    <br/>
+
+
+    <table border="1" width="1250">
+        <tr bgcolor="#aaaaaa">
+            <th align="left" width="150">Command</th>
+            <th align="left" width="500">Description</th>
+            <th align="left" width="600">Code Snippet</th>
+        </tr>
+        <tr>
+            <td valign="top">
+                <code>clear</code>
+            </td>
+            <td valign="top">
+                Clears the entire console (this command also cleans any canvas object, see clear in <a href="/documentation/drawing-commands.html">drawing commands</a>.
+            </td>
+            <td valign="top">
+                <code>
+                    <font color="gray">//Ask for values and present results</font><br/>
+                    print("Value of A = ")<br/>
+                    read(a)<br/>
+                    print("Value of B = ")<br/>
+                    read(b)<br/>
+                    <font color="red">clear</font><br/>
+                    println("Result of A + B = ", a + b)<br/>                   
+                </code>
+            </td>
+        </tr> 
+        <tr>
+            <td valign="top">
+                <code>keyPressed</code>
+            </td>
+            <td valign="top">
+                Returns the last keyPressed value on the keyboard. After reading it, the keyPressed will no longer exist.
+            </td>
+            <td valign="top" nowrap>
+                <code>
+                    <font color="gray">//While nothing is pressed, keep doing things</font><br/>
+                    while (<font color="red">keyPressed</font> = "")<br/>
+                    &nbsp;&nbsp;println("New line")<br/>
+                    end
+                </code>
+            </td>
+        </tr>         
+        <tr>
+            <td valign="top">
+                <code>log</code>
+            </td>
+            <td valign="top">
+                Writes to the log of the program. It accepts many arguments. It is used to keep track of what 
+                is happening with the pogram.
+            </td>
+            <td valign="top" nowrap>
+                <code>
+                    <font color="gray">//Calculate the squared root of a number</font><br/>
+                    print("Value of A = ")<br/>
+                    read(a)<br/>
+                    if (isNumber(a))<br/>
+                    &nbsp;&nbsp;println("The squared root of a is ", sqrt(a))<br/>
+                    else<br/>
+                    &nbsp;&nbsp;<font color="red">log(</font>"The value of A: ", a, " is not a number"<font color="red">)</font><br/>
+                    end
+                </code>
+            </td>
+        </tr>        
+        <tr>
+            <td valign="top">
+                <code>print</code>
+            </td>
+            <td valign="top">
+                Writes to the console. It accepts many arguments. The command print writes to the console and keeps the cursor 
+                on the last character (next writing activity will happen on the same line). See println below.
+            </td>
+            <td valign="top" nowrap>
+                <code>
+                    <font color="gray">//Writes the first and last name one next to the other</font><br/>
+                    firstName = "John"<br/>
+                    lastName = "Secada"<br/>
+                    <font color="red">print(</font>firstName<font color="red">)</font><br/>
+                    <font color="red">print(</font>" "<font color="red">)</font><br/>
+                    <font color="red">print(</font>lastName<font color="red">)</font><br/>
+                    <font color="gray">//John Secada</font><br/>
+                </code>
+            </td>
+        </tr> 
+        <tr>
+            <td valign="top">
+                <code>println</code>
+            </td>
+            <td valign="top">
+                Writes to the console. It accepts many arguments. The command println writes to the console and moves the cursor to the next line.
+            </td>
+            <td valign="top" nowrap>
+                <code>
+                    <font color="gray">//Writes the first and last name one next to the other</font><br/>
+                    firstName = "John"<br/>
+                    lastName = "Secada"<br/>
+                    <font color="red">println(</font>firstName<font color="red">)</font><br/>
+                    <font color="red">println(</font>" "<font color="red">)</font><br/>
+                    <font color="red">println(</font>lastName<font color="red">)</font><br/>
+                    <font color="gray">//John</font><br/>
+                    <font color="gray">//</font><br/>
+                    <font color="gray">//Secada</font><br/>
+                    <font color="red">println(</font>"Hi ", firstName, " ", lastName, ", it's a pleasure to meet you!"<font color="red">)</font><br/>
+                    <font color="gray">//Hi John Secada, it's a pleasure to meet you!</font><br/>
+                </code>
+            </td>
+        </tr>    
+        <tr>
+            <td valign="top">
+                <code>read</code>
+            </td>
+            <td valign="top">
+                Reads a value entered by the user and stores it into a variable.
+            </td>
+            <td valign="top" nowrap>
+                <code>
+                    <font color="gray">//Reads first and last name</font><br/>
+                    print("What's your first name?")<br/>
+                    <font color="red">read(</font>firstName<font color="red">)</font><br/>
+                    print("What's your last name?")<br/>
+                    <font color="red">read(</font>lastName<font color="red">)</font><br/>
+                    println("Hi ", firstName, " ",, lastName, ", it's a pleasure to meet you!")<br/>
+                </code>
+            </td>
+        </tr>          
+    </table>
+</body>        
+</html>
