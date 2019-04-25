@@ -170,7 +170,7 @@ public class CompilerUtilsTest {
         assertArrayEquals("Null command", new String[] {"println"}, CompilerUtils.getCommandParameters("println"));
         
         assertArrayEquals("Simple parameters", 
-            new String[] {"age", " 20"}, 
+            new String[] {"age", "20"}, 
             CompilerUtils.getCommandParameters("age, 20"));
         
         assertArrayEquals("Simple string without comma", 
@@ -183,7 +183,7 @@ public class CompilerUtilsTest {
             CompilerUtils.getCommandParameters("\"Hello World, I'm alive\""));
          
          assertArrayEquals("String parameters", 
-            new String[] {"\"My age is \"", " 20", " \", and I have 2 pets, one is a dog.\""},  
+            new String[] {"\"My age is \"", "20", "\", and I have 2 pets, one is a dog.\""},  
             CompilerUtils.getCommandParameters("\"My age is \", 20, \", and I have 2 pets, one is a dog.\""));
          
         assertArrayEquals("Simple inner command", 
@@ -192,8 +192,8 @@ public class CompilerUtilsTest {
         
         assertArrayEquals("Multiple inner commands", 
             new String[] {"compare(\"Gabriel, Briane\", phrase)",
-                           " 2 + 5",
-                           " lower(\"max(1,2)\""}, 
+                           "2 + 5",
+                           "lower(\"max(1,2)\""}, 
             CompilerUtils.getCommandParameters("compare(\"Gabriel, Briane\", phrase), 2 + 5, lower(\"max(1,2)\""));
 
         assertArrayEquals("Multiple inner parenthesis", 
@@ -202,13 +202,13 @@ public class CompilerUtilsTest {
         
         assertArrayEquals("Multiple inner parenthesis, multiple command", 
             new String[] {"max(min(1,3),max(2,4), min(min(5,6),min(8,9)))",
-                          " 3"}, 
+                          "3"}, 
             CompilerUtils.getCommandParameters("max(min(1,3),max(2,4), min(min(5,6),min(8,9))), 3"));
         
         assertArrayEquals("Multiple inner parenthesis, multiple command", 
             new String[] {"min(1,3)",
                           "max(2,4)",
-                          " min(min(5,6),min(8,9))"}, 
+                          "min(min(5,6),min(8,9))"}, 
             CompilerUtils.getCommandParameters("min(1,3),max(2,4), min(min(5,6),min(8,9))"));        
     }
     
